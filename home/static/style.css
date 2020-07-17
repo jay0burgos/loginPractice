@@ -1,6 +1,11 @@
+
 * {
     font-family: 'Anonymous Pro', monospace;
     color: whitesmoke;
+    
+}
+body{
+    display: inline-grid;
 }
 .error {
     color: red;
@@ -30,3 +35,9 @@ body {
     margin: 2em;
     padding: 2em;
 }
+
+input {
+    float: right;
+    clear: both;
+      }
+
