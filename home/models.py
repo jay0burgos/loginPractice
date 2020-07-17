@@ -4,11 +4,7 @@ import bcrypt
 
 EMAIL_MATCH = re.compile(r'^[a-zA-Z0-9.+_-]+@[a-zA-Z0-9._-]+\.[a-zA-Z]+$')
 
-#TODO finish out validator
-    #email, make sure it isnt taken
-    #passwords makesure both passwords match
-#TODO set up login validator
-    #TODO first find email
+
 
 
 class manager(models.Manager):
