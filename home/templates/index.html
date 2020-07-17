@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+    
+</head>
+<body>
+    <div class="wrapper">
+        <section>
+        <h3>Enter New User</h3>
+
+        {% if messages %}
+            <ul class="messages">
+                {% for message in messages %}
+                    {% if 'register' in message.extra_tags %}
+                    <li {% if message.tags %} class="{{ message.tags }}"{% endif %} >{{ message }}</li>
+                    {% endif %}
+                {% endfor %}
+            </ul>
+        {% endif %}
+        <form action="/create" method="post">
+
+            {% csrf_token %}
+            
+            <div class="form-group">
+                <label for="firstname">First Name:</label>
+                <input type="text" name="firstname" id="firstname">
+            </div>
+
+            <div class="form-group">
+                <label for="lastname">Last Name</label>
+                <input type="text" name="lastname" id="lastname">
+            </div>
+
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="text" name="email" id="email">
+            </div>
+
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input type="text" name="password" id="password">
+            </div>
+
+            <div class="form-group">
+                <label for="RePassword">Re-enter Password</label>
+                <input type="text" name="RePassword" id="RePassword">
+            </div>
+            <button class="btn btn-primary">Submit</button>
+            </form>
+        </section>
+        <section>
+            <h3>Log In</h3>
+            <form action="authenticate" method="post">
+                {% csrf_token %}
+                <div class="form-group">
+                    <label for="email">Email: </label>
+                    <input type="email" name="email" id="email">
+                </div>
+                <div class="form-group">
+                    <label for="password">Password:</label>
+                    <input type="text" name="password" id="password">
+                </div>
+                <input type="submit" value="submit">
+            </form>
+        </section>
+
+    </div>
+    
+</body>
+</html>
