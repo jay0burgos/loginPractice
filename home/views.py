@@ -13,15 +13,13 @@ def index(request):
     }
     return render(request, 'index.html', content)
 
-def fetch_users(request):
+def fetch_users(request): #used to fetch table body, used in AJAX function
     content = {
         'users': users.objects.all()
     }
     return render(request, 'users.html', content)
 
 def registerUser(request):
-    
-    #TODO redirect to first page after log in 
 
     errors = users.objects.validator(request.POST)
         
