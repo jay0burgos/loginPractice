@@ -4,9 +4,6 @@ import bcrypt
 
 EMAIL_MATCH = re.compile(r'^[a-zA-Z0-9.+_-]+@[a-zA-Z0-9._-]+\.[a-zA-Z]+$')
 
-
-
-
 class manager(models.Manager):
     def register(self, data):
         hashed = bcrypt.hashpw(data['password'].encode(), bcrypt.gensalt()).decode()

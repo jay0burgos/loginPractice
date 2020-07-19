@@ -6,6 +6,7 @@ urlpatterns = [
     path('create', views.registerUser),
     path('authenticate', views.login),
     path('success', views.success),
-    path('logout', views.logout)
+    path('logout', views.logout),
+    path('fetch', views.fetch_users)
     
 ]

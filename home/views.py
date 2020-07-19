@@ -8,7 +8,16 @@ from django.contrib import messages
 
 
 def index(request):
-    return render(request, 'index.html')
+    content = {
+        'users': users.objects.all()
+    }
+    return render(request, 'index.html', content)
+
+def fetch_users(request):
+    content = {
+        'users': users.objects.all()
+    }
+    return render(request, 'users.html', content)
 
 def registerUser(request):
     
